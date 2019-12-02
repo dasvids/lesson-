@@ -2,9 +2,9 @@
 
 function IsLeapYear(year: integer): boolean;
 begin
- if year mod 4 = 0 and year mod 100 <>0
+ if (year mod 4 = 0) and (year mod 100 <>0)
  then result:=true;
- if year mod 400 then result:=true;
+ if (year mod 400 = 0) then result:=true;
 end;
 function DaysInMonth(month, year: integer):integer;
 begin
@@ -26,7 +26,10 @@ function LaterInYear(p1, p2: DateTime): DateTime;
 begin
   result:=((p1.Date)>(p2.Date))?p1:p2;
 end;
-function DaysInYear(year: integer): integer := 0;
+function DaysInYear(year: integer): integer;
+begin
+  result:=(IsLeapYear(year))?366:365;
+end;
 function DaysInYearRange(year1, year2: integer): integer := 0;
 function SecondsInHours(hours: integer): integer := 0;
 end.
