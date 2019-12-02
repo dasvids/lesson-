@@ -30,6 +30,12 @@ function DaysInYear(year: integer): integer;
 begin
   result:=(IsLeapYear(year))?366:365;
 end;
-function DaysInYearRange(year1, year2: integer): integer := 0;
+function DaysInYearRange(year1, year2: integer):integer;
+begin
+    var a,b:integer;
+    a:=(IsLeapYear(year1))?366:365;
+    b:=(IsLeapYear(year2))?366:365;
+    result:=a+b;
+end;
 function SecondsInHours(hours: integer): integer := 0;
 end.
