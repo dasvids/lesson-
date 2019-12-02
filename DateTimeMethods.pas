@@ -2,7 +2,9 @@
 
 function IsLeapYear(year: integer): boolean;
 begin
- result:= year mod 4 = 0;
+ if year mod 4 = 0 and year mod 100 <>0
+ then result:=true;
+ if year mod 400 then result:=true;
 end;
 function DaysInMonth(month, year: integer):integer;
 begin
